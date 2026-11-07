@@ -1,0 +1,184 @@
+@import url("https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&family=Special+Elite&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-blackletter: "UnifrakturCook", "Old English Text MT", serif;
+  --font-typewriter: "Special Elite", "Courier New", monospace;
+  --color-ink: #0c0c0c;
+  --color-coal: #161616;
+  --color-bone: #e6dfcb;
+  --color-ash: #c9c2ae;
+  --color-blood: #b3121b;
+  --color-blood-dark: #a30f18;
+  --color-blood-bright: #ff4b4b;
+}
+
+body {      
+  margin: 0;
+  background-color: var(--color-ink);
+  color: var(--color-bone);
+  font-family: var(--font-typewriter);
+}
+
+.torn-1 {
+  clip-path: polygon(0 2%, 6% 0, 14% 2%, 24% 0, 36% 1.5%, 50% 0, 63% 2%, 76% 0, 88% 1.5%, 100% 0, 99% 30%, 100% 55%, 98% 80%, 100% 100%, 88% 98%, 74% 100%, 60% 98.5%, 46% 100%, 32% 98%, 18% 100%, 6% 98.5%, 0 100%, 1.5% 70%, 0 45%, 1% 20%);
+}
+
+.torn-2 {
+  clip-path: polygon(0 1%, 8% 2%, 18% 0, 30% 2%, 44% 0, 58% 1.5%, 72% 0, 86% 2%, 100% 0, 98% 28%, 100% 52%, 99% 78%, 100% 100%, 90% 98.5%, 78% 100%, 64% 98%, 50% 100%, 36% 98.5%, 22% 100%, 10% 98%, 0 100%, 1% 74%, 0 50%, 1.5% 24%);
+}
+
+.torn-3 {
+  clip-path: polygon(0 0, 10% 2%, 22% 0, 34% 1.5%, 48% 0, 62% 2%, 74% 0, 88% 1.5%, 100% 1%, 99% 26%, 100% 50%, 98.5% 76%, 100% 99%, 86% 100%, 72% 98%, 58% 100%, 44% 98.5%, 30% 100%, 16% 98%, 4% 100%, 0 98%, 1.5% 72%, 0 48%, 1% 22%);
+}
+
+@keyframes swing {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+@keyframes moon-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.07); opacity: 0.85; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes drip {
+  0% { transform: translateY(0); opacity: 1; }
+  75% { opacity: 1; }
+  100% { transform: translateY(36px); opacity: 0; }
+}
+
+@keyframes wave {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.anim-swing {
+  transform-origin: 280px 0;
+  animation: swing 4s ease-in-out infinite;
+}
+
+.anim-moon {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: moon-pulse 5s ease-in-out infinite;
+}
+
+.anim-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+.anim-drip {
+  animation: drip 2.4s ease-in infinite;
+}
+
+.anim-drip-late {
+  animation: drip 2.4s ease-in 1.2s infinite;
+}
+
+.anim-wave {
+  animation: wave 3s ease-in-out infinite;
+}
+
+.anim-wave-late {
+  animation: wave 3s ease-in-out 1.5s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-swing, .anim-moon, .anim-float, .anim-drip, .anim-drip-late, .anim-wave, .anim-wave-late {
+    animation: none;
+  }
+}
+
+@keyframes wind {
+  0% { transform: translateX(-140px); opacity: 0; }
+  20% { opacity: 0.7; }
+  80% { opacity: 0.7; }
+  100% { transform: translateX(700px); opacity: 0; }
+}
+
+@keyframes bird {
+  0% { transform: translateX(-80px); }
+  100% { transform: translateX(660px); }
+}
+
+@keyframes flap {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.35); }
+}
+
+@keyframes mist {
+  0%, 100% { transform: translateX(-30px); }
+  50% { transform: translateX(30px); }
+}
+
+.anim-wind {
+  animation: wind 6s linear infinite;
+}
+
+.anim-bird {
+  animation: bird 16s linear infinite;
+}
+
+.anim-flap {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: flap 0.7s ease-in-out infinite;
+}
+
+.anim-mist {
+  animation: mist 9s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-wind, .anim-bird, .anim-flap, .anim-mist {
+    animation: none;
+  }
+}
+
+@keyframes wind-screen {
+  0% { transform: translateX(-20vw); opacity: 0; }
+  15% { opacity: 0.6; }
+  85% { opacity: 0.6; }
+  100% { transform: translateX(120vw); opacity: 0; }
+}
+
+@keyframes mist-screen {
+  0%, 100% { transform: translateX(-6vw); }
+  50% { transform: translateX(6vw); }
+}
+
+.anim-wind-screen {
+  animation: wind-screen 8s linear infinite;
+}
+
+.anim-mist-screen {
+  animation: mist-screen 14s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-wind-screen, .anim-mist-screen {
+    animation: none;
+  }
+}
+
+.btn-punk {
+  box-shadow: 5px 5px 0 var(--color-bone);
+  transition: translate 0.12s ease, box-shadow 0.12s ease;
+  cursor: pointer;
+}
+
+.btn-punk:hover {
+  translate: -2px -2px;
+  box-shadow: 7px 7px 0 var(--color-bone);
+}
+
+.btn-punk:active {
+  translate: 4px 4px;
+  box-shadow: 1px 1px 0 var(--color-bone);
+}
